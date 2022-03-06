@@ -1,0 +1,26 @@
+@import './variables.scss';
+@import './utilities.scss';
+
+html {
+    font-size: 14px;
+}
+body {
+    margin: 0;
+    color: $dark;
+}
+
+.header {
+    display: flex;
+    &-item {
+        background-color: $light;
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+        &:not(:first-child) {
+            border-left: 1px solid darken($light, 5%);
+        }
+        &:hover {
+            background-color: darken($light, 5%);
+        }
+    }
+}
