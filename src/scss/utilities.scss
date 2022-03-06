@@ -4,3 +4,13 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+.table {
+    border: 1px solid $secondary;
+    border-collapse:collapse;
+    th, td {
+        border: 1px solid $secondary;
+        padding: 0.75rem;
+        vertical-align: top;
+    }
+}
