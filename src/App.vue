@@ -17,14 +17,42 @@ import useState from "@/state/index";
 import { generatePanelsList, generateSettingsList } from "@/modules/mock";
 export default {
   setup() {
-    const { loadList } = useState();
+    const { loadList, getList } = useState();
 
     //generate initial mock data
     const panelsList = generatePanelsList();
     loadList("panels", panelsList);
 
-    const settingsList = generateSettingsList(panelsList);
+    const savedSettings = localStorage.getItem("settings");
+    let settingsList = {};
+    if (savedSettings) {
+      try {
+        settingsList = JSON.parse(savedSettings);
+      } catch (e) {
+        settingsList = generateSettingsList(panelsList);
+      }
+    } else {
+      settingsList = generateSettingsList(panelsList);
+    }
     loadList("settings", settingsList);
+
+    return {
+      getList,
+    };
+  },
+  computed: {
+    settingsList() {
+      return this.getList("settings");
+    },
+  },
+  watch: {
+    settingsList: {
+      immediate: true,
+      deep: true,
+      handler(value) {
+        localStorage.setItem("settings", JSON.stringify(value));
+      },
+    },
   },
 };
 </script>
