@@ -5,7 +5,9 @@
   <panel-component
     v-for="(panel, index) in getList('panels')"
     :key="index"
-    :type="getPanelType(panel.id)"
+    :type="getPanelSettings(panel.id).type"
+    :size="getPanelSettings(panel.id).size"
+    :position="getPanelSettings(panel.id).position"
     :data="panel"
   />
 </template>
@@ -26,9 +28,9 @@ export default {
     };
   },
   methods: {
-    getPanelType(id) {
+    getPanelSettings(id) {
       const settings = this.getList("settings");
-      return settings[id].type;
+      return settings[id];
     },
   },
 };

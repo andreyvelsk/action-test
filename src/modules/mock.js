@@ -44,10 +44,28 @@ export const generatePanelsList = () => {
   return list;
 };
 
-export const generateRndSettings = () => {
-  const types = Object.keys(constants.panels.types);
-  const typeId = Math.floor(Math.random() * types.length);
+const getRndElement = (constant) => {
+  const arr = Object.keys(constants.panels[constant]);
+  const id = Math.floor(Math.random() * arr.length);
+
+  return arr[id];
+};
+
+const generateRndSettings = () => {
   return {
-    type: types[typeId],
+    type: getRndElement("type"),
+    size: getRndElement("size"),
+    position: getRndElement("position"),
   };
+};
+
+export const generateSettingsList = (panelsList) => {
+  const settingsList = {};
+  Object.keys(panelsList).forEach((id) => {
+    const setting = generateRndSettings();
+    setting.id = id;
+    settingsList[id] = setting;
+  });
+
+  return settingsList;
 };

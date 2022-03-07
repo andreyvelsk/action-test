@@ -14,7 +14,7 @@
 
 <script>
 import useState from "@/state/index";
-import { generatePanelsList, generateRndSettings } from "@/modules/mock";
+import { generatePanelsList, generateSettingsList } from "@/modules/mock";
 export default {
   setup() {
     const { loadList } = useState();
@@ -23,12 +23,7 @@ export default {
     const panelsList = generatePanelsList();
     loadList("panels", panelsList);
 
-    const settingsList = {};
-    Object.keys(panelsList).forEach((id) => {
-      const setting = generateRndSettings();
-      setting.id = id;
-      settingsList[id] = setting;
-    });
+    const settingsList = generateSettingsList(panelsList);
     loadList("settings", settingsList);
   },
 };

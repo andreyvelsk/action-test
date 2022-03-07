@@ -24,3 +24,39 @@ body {
         }
     }
 }
+
+.panel {
+    border: 1px solid $secondary;
+    padding: 2rem;
+    border-radius: .25rem;
+    background-color: $light;
+    margin: .5rem;
+    &-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -.5rem;
+    }
+    &-sm {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    &-md {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    &-lg {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    &-position {
+        &-left {
+            justify-content: start;
+        }
+        &-center {
+            justify-content: center;
+        }
+        &-right {
+            justify-content: right;
+        }
+    }
+}
