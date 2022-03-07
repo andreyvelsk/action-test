@@ -1,5 +1,8 @@
 <template>
-  <component :is="componentsName[type]" :data="data" />
+  <h2>
+    {{ data.name }}
+  </h2>
+  <component :is="componentsName[type]" :data="data.data" />
 </template>
 
 <script>
@@ -17,14 +20,18 @@ export default {
   props: {
     type: {
       type: String,
+      default: "table",
       validator(value) {
-        const panelNames = Object.keys(constants.panels);
+        const panelNames = Object.keys(constants.panels.types);
         return panelNames.indexOf(value) !== -1;
       },
     },
     data: {
-      type: Array,
+      type: Object,
       required: true,
+      validator(panel) {
+        return panel.name && panel.data;
+      },
     },
   },
   computed: {

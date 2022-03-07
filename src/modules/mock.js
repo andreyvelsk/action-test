@@ -1,3 +1,5 @@
+import constants from "@/state/constants";
+
 const months = [
   "Январь",
   "Февраль",
@@ -25,4 +27,27 @@ const makeRandomData = () => {
   return result;
 };
 
-export default makeRandomData();
+const generatePanel = (name) => {
+  return {
+    name,
+    data: makeRandomData(),
+  };
+};
+
+export const generatePanelsList = () => {
+  const list = {};
+  for (let i = 1; i < 6; i++) {
+    list[i] = generatePanel(`Панель${i}`);
+    list[i].id = i;
+  }
+
+  return list;
+};
+
+export const generateRndSettings = () => {
+  const types = Object.keys(constants.panels.types);
+  const typeId = Math.floor(Math.random() * types.length);
+  return {
+    type: types[typeId],
+  };
+};

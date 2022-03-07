@@ -10,8 +10,12 @@ const routes = [
   {
     path: "/settings",
     name: "settings",
-    component: () =>
-      import(/* webpackChunkName: "settings" */ "@/views/SettingsView.vue"),
+    component: () => import("@/views/SettingsView.vue"),
+  },
+  {
+    path: "/settings/:id",
+    name: "settings.panel",
+    component: () => import("@/views/PanelSettings.vue"),
   },
 ];
 

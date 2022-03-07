@@ -2,11 +2,12 @@
   <div>
     <h1>Главная</h1>
   </div>
-  <panel-component type="table" :data="panelData" />
-  <panel-component type="number" :data="panelData" />
-  <panel-component type="line" :data="panelData" />
-  <panel-component type="bar" :data="panelData" />
-  <panel-component type="pie" :data="panelData" />
+  <panel-component
+    v-for="(panel, index) in getList('panels')"
+    :key="index"
+    :type="getPanelType(panel.id)"
+    :data="panel"
+  />
 </template>
 
 <script>
@@ -18,15 +19,16 @@ export default {
     PanelComponent,
   },
   setup() {
-    const { getCurrent } = useState();
+    const { getList } = useState();
 
     return {
-      getCurrent,
+      getList,
     };
   },
-  computed: {
-    panelData() {
-      return this.getCurrent.data;
+  methods: {
+    getPanelType(id) {
+      const settings = this.getList("settings");
+      return settings[id].type;
     },
   },
 };
