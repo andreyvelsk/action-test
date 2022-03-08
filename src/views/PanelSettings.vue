@@ -1,24 +1,31 @@
 <template>
-  <select-input
-    store="settings"
-    name="type"
-    :itemsList="getPanelConstant('type')"
-    label="Тип панели"
-  />
-  <select-input
-    store="settings"
-    name="size"
-    :itemsList="getPanelConstant('size')"
-    label="Размер панели"
-  />
-  <select-input
-    store="settings"
-    name="position"
-    :itemsList="getPanelConstant('position')"
-    label="Положение панели"
-  />
+  <h1>Настройки панели</h1>
 
-  <button @click="saveSettings">Сохранить</button>
+  <div class="settings-container">
+    <select-input
+      store="settings"
+      name="type"
+      :itemsList="getPanelConstant('type')"
+      label="Тип панели"
+    />
+    <select-input
+      store="settings"
+      name="size"
+      :itemsList="getPanelConstant('size')"
+      label="Размер панели"
+    />
+    <select-input
+      store="settings"
+      name="position"
+      :itemsList="getPanelConstant('position')"
+      label="Положение панели"
+    />
+  </div>
+
+  <button @click="saveSettings" class="btn btn-primary mr-1">Сохранить</button>
+  <button @click="$router.push({ name: 'settings' })" class="btn btn-danger">
+    Назад
+  </button>
 
   <hr />
 
@@ -86,4 +93,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.settings-container {
+  display: flex;
+  flex-wrap: wrap;
+  & > *:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+</style>

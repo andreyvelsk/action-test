@@ -1,37 +1,35 @@
 <template>
-  <div>
-    <h1>Настройки</h1>
-    <table class="table table-hover w-100">
-      <thead>
-        <tr>
-          <th>Имя</th>
-          <th>Тип</th>
-          <th>Размер</th>
-          <th>Положение</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="panel in getPanelsList"
-          :key="panel.id"
-          @click="goToPanelSettings(panel.id)"
-        >
-          <th>
-            {{ panel.name }}
-          </th>
-          <td>
-            {{ getPanelSettingName(panel.id, "type") }}
-          </td>
-          <td>
-            {{ getPanelSettingName(panel.id, "size") }}
-          </td>
-          <td>
-            {{ getPanelSettingName(panel.id, "position") }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h1>Настройки</h1>
+  <table class="table table-hover w-100">
+    <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Тип</th>
+        <th>Размер</th>
+        <th>Положение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="panel in getPanelsList"
+        :key="panel.id"
+        @click="goToPanelSettings(panel.id)"
+      >
+        <th>
+          {{ panel.name }}
+        </th>
+        <td>
+          {{ getPanelSettingName(panel.id, "type") }}
+        </td>
+        <td>
+          {{ getPanelSettingName(panel.id, "size") }}
+        </td>
+        <td>
+          {{ getPanelSettingName(panel.id, "position") }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script>

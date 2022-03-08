@@ -5,24 +5,10 @@
     padding-right: 1rem;
 }
 
-.table {
-    border: 1px solid $secondary;
-    border-collapse:collapse;
-    th, td {
-        border: 1px solid $secondary;
-        padding: 0.75rem;
-        vertical-align: top;
-    }
-    &-hover tbody {
-        tr:hover {
-            td, th {
-                cursor: pointer;
-                background-color: $light;
-            }
-        }
-    }
-}
-
 .w-100 {
     width: 100%;
+}
+
+.mr-1 {
+    margin-right: .5rem;
 }

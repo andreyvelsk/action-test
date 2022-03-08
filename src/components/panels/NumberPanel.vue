@@ -31,7 +31,7 @@ export default {
   background-color: $info;
   text-align: center;
   padding: 2.5rem;
-  border-radius: 0.25rem;
+  border-radius: $border-radius;
   &-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;

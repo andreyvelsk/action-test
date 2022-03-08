@@ -6,3 +6,21 @@ $warning:       #ffc107 !default;
 $danger:        #dc3545 !default;
 $light:         #f8f9fa !default;
 $dark:          #343a40 !default;
+$white:         #ffffff !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
+
+$border-radius: .25rem;

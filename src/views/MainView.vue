@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>Главная</h1>
-  </div>
+  <h1>Главная</h1>
   <panel-component
     v-for="(panel, index) in getList('panels')"
     :key="index"

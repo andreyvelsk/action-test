@@ -1,0 +1,52 @@
+.form-group {
+    label {
+        font-weight: bold;
+    }
+    margin-bottom: .5rem;
+    select {
+        padding: .5rem;
+        border-radius: $border-radius;
+        background-color: $white;
+    }
+}
+
+.btn {
+    padding: .5rem 1rem;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    @each $color, $value in $theme-colors {
+        &-#{$color} { 
+            background-color: $value;
+            color: $white;
+            border: none;
+            &:hover {
+                background-color: darken($value, 5%);
+            }
+        }
+    }
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid $secondary;
+    margin: .5rem 0;
+}
+
+.table {
+    border: 1px solid $secondary;
+    border-collapse:collapse;
+    th, td {
+        border: 1px solid $secondary;
+        padding: 0.75rem;
+        vertical-align: top;
+    }
+    &-hover tbody {
+        tr:hover {
+            td, th {
+                cursor: pointer;
+                background-color: $light;
+            }
+        }
+    }
+}
